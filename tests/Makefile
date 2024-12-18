@@ -1,4 +1,7 @@
-ys_eqv_check:
+ys-synth-test:
+	yosys ./synth_check.ys
+
+ys-eqv-test:
 	yosys ./and_eqv_check.ys
 
 verilator-test:
