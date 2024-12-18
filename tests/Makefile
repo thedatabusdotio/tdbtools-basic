@@ -1,3 +1,12 @@
+
+cocotb-test:
+	TOPLEVEL_LANG=verilog \
+	TOPLEVEL=dff \
+	MODULE=test_dff \
+	VERILOG_SOURCES=$(PWD)/dff.sv \
+	SIM=icarus \
+	$(MAKE) -f $(shell cocotb-config --makefiles)/Makefile.sim SIM=$(SIM)
+
 ys-synth-test:
 	yosys ./synth_check.ys
 
@@ -19,4 +28,5 @@ iverilog-test:
 clean:
 	rm -f *.pid *.dot \
 	rm -f *.vvp *.vcd \
-	rm -rf *.vcd obj_dir
+	rm -rf *.vcd obj_dir \
+	rm -rf sim_build __pycache__ results.xml
